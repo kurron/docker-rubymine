@@ -2,7 +2,7 @@
 
 # Launches RubyMine inside a Docker container
 
-IMAGE=${1:-kurron/docker-rubymine:latest}
+IMAGE=${1:-kurron/rubymine-local:latest}
 
 DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker))
 USER_ID=$(id -u $(whoami))
@@ -15,7 +15,7 @@ CMD="docker run --group-add ${DOCKER_GROUP_ID} \
                 --env HOME=/home/powerless \
                 --env DISPLAY=unix${DISPLAY} \
                 --interactive \
-                --name RubyMine \
+                --name IntelliJ \
                 --net "host" \
                 --rm \
                 --tty \
